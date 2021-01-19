@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-functions.js"></script>
+
+    <!-- Comment out (or don't include) services that you don't want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script> -->
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="./js/acceso.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <title>Acceso</title>
+</head>
+
+<body>
+    <div id="noActive" class="login" class="container" style="display: none">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="login well well-small">
+                    <div class="center">
+                    </div>
+                    <form action="javascript:void(0);"  style="" class="login-form" id="UserLoginForm" 
+                        accept-charset="utf-8">
+                        <div class="control-group">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-user"></i></span>
+                                <input name="data[User][username]" id="email" required="required" placeholder="Nombre"
+                                    maxlength="255" type="text" id="UserUsername">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-lock"></i></span>
+                                <input name="data[User][password]" id="password" required="required" placeholder="Contraseña"
+                                    type="password" id="UserPassword">
+                            </div>
+                        </div>
+                        <p id="errorMsj" style="color: red; display: none">malas credenciales</p>
+                        <div class="control-group">
+                            <input class="btn btn-primary btn-large btn-block" type="submit" value="Acceder" onclick="login()">
+                        </div>
+                        <a href="./login.html">admin?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="isActive" class="login" class="container" style="display: none">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="login well well-small">
+                        <div class="center">
+                        </div>
+                        <form action="javascript:void(0);"  style="" class="login-form" id="UserLoginForm2" 
+                            accept-charset="utf-8">
+                            <p>Ya empezaste actividades este dia a las </p>
+                            
+                            <div class="control-group">
+                                <input class="btn btn-danger btn-large btn-block" type="submit" value="Salir" onclick="signOut()">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <style>
+        .login img {
+            margin: 10px 0;
+        }
+
+        .login .center {
+            text-align: center;
+        }
+
+        .login .login {
+            max-width: 300px;
+            margin: 35px auto;
+        }
+
+        .login .login-form {
+            padding: 0px 25px;
+        }
+    </style>
+</body>
+
+</html>
